@@ -6,15 +6,23 @@ class MailTracker extends Eloquent
   protected $table = 'mail_tracker';
 
   /**
-   * This is the public function to send the email. 
+   * This is the public function to send the email.
+   *
    * Rest of the internal activities will be handled by this function.
-   * 
-   * @param email address to send the email $mail_to_address
-   * @param email address to from which we want to send the email $mail_from_address
-   * @param email subject $mail_subject
-   * @param email body content (typically a view) $mail_body
-   * @param the name which will come in the to field $mail_to_name
-   * @param the name which will come in from field $mail_from_name
+   *
+   * @param
+   *          email address to send the email $mail_to_address
+   * @param
+   *          email address to from which we want to send the email
+   *          $mail_from_address
+   * @param
+   *          email subject $mail_subject
+   * @param
+   *          email body content (typically a view) $mail_body
+   * @param
+   *          the name which will come in the to field $mail_to_name
+   * @param
+   *          the name which will come in from field $mail_from_name
    */
   public function sendMail ($mail_to_address, $mail_from_address, $mail_subject, 
       $mail_body, $mail_to_name = null, $mail_from_name = null)
@@ -28,17 +36,27 @@ class MailTracker extends Eloquent
   }
 
   /**
-   * This function will add an entry in the Mail tracker table about the email which is being sent.
-   * This function will return the mail_id which is being added into the table. This is an internal 
-   * function which is called by the public function. After send mail the status and send time is
+   * This function will add an entry in the Mail tracker table about the email
+   * which is being sent.
+   * This function will return the mail_id which is being added into the table.
+   * This is an internal
+   * function which is called by the public function. After send mail the status
+   * and send time is
    * getting updated.
-   * 
-   * @param email address to send the email $mail_to_address
-   * @param email address to from which we want to send the email $mail_from_address
-   * @param email subject $mail_subject
-   * @param email body content (typically a view) $mail_body
-   * @param the name which will come in the to field $mail_to_name
-   * @param the name which will come in from field $mail_from_name
+   *
+   * @param
+   *          email address to send the email $mail_to_address
+   * @param
+   *          email address to from which we want to send the email
+   *          $mail_from_address
+   * @param
+   *          email subject $mail_subject
+   * @param
+   *          email body content (typically a view) $mail_body
+   * @param
+   *          the name which will come in the to field $mail_to_name
+   * @param
+   *          the name which will come in from field $mail_from_name
    */
   protected function addMailTrackerEntry ($mail_to_address, $mail_from_address, 
       $mail_subject, $mail_body, $mail_to_name, $mail_from_name)
@@ -59,7 +77,8 @@ class MailTracker extends Eloquent
   /**
    * This function will udate the sent time of the email and status.
    * This is an internal function and it is being called by the public function.
-   * @param unknown $mail_id
+   *
+   * @param unknown $mail_id          
    */
   protected function updateMailStatus ($mail_id)
   {
@@ -70,12 +89,54 @@ class MailTracker extends Eloquent
         ));
   }
 
+  /**
+   * This function will initiate the send email function.
+   *
+   * @param unknown $mail_id          
+   */
   protected function triggerMail ($mail_id)
   {
+    if ($this->decideSendingMethod($mail_id))
+    {
+      // once the mail has been sent, updating the mail status and sent time
+      $this->updateMailStatus($mail_id);
+    }
+  }
+
+  /**
+   * This function will decide based on the application setting
+   * which method to use for sending mails based on the config.
+   *
+   * @param unknown $mail_id          
+   */
+  protected function decideSendingMethod ($mail_id)
+  {
+    $mail_config = Config::get('mailing::mail.method');
+    
+    switch ($mail_config)
+    {
+      case 'smtp':
+        {
+          $smtp_config = Config::get('mailing::mail.' . $mail_config);
+          if ($this->sendMailSMTP($mail_id, $smtp_config))
+            return true;
+        }
+    }
+  }
+
+  /**
+   * This function will send the email using SMTP
+   *
+   * @param unknown $mail_id          
+   */
+  protected function sendMailSMTP ($mail_id, $smtp_config)
+  {
     $mail_row = DB::table($this->table)->where('mail_id', $mail_id)->first();
+
     // setting the server, port and encryption
-    $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')->setUsername(
-        'amitavroy@gmail.com')->setPassword('2ISrQfDqajRq1-de400d');
+    $transport = Swift_SmtpTransport::newInstance($smtp_config['server'], 
+        $smtp_config['port'], $smtp_config['encryption'])->setUsername(
+        $smtp_config['username'])->setPassword($smtp_config['password']);
     
     // creating the Swift_Mailer instance and pass the config settings
     $mailer = Swift_Mailer::newInstance($transport);
@@ -87,16 +148,13 @@ class MailTracker extends Eloquent
         ))
       ->setTo(
         array(
-            'amitav.roy@focalworks.in' => 'Amitav Office'
+            $mail_row->mail_to_address => $mail_row->mail_to_name
         ))
       ->setBody($mail_row->mail_body, 'text/html');
-    
     try
     {
       $mailer->send($message);
-      
-      // once the mail has been sent, updating the mail status
-      $this->updateMailStatus($mail_id);
+      return true;
     } catch (Exception $e)
     {
       die('Error sending email. ' . $e);
