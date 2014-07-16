@@ -17,8 +17,10 @@ class CreateMailTracker extends Migration
         {
           $table->engine = 'InnoDB';
           $table->increments('mail_id')->comment('This is comment');
-          $table->string('mail_to',100);
-          $table->string('mail_from',100);
+          $table->string('mail_to_address',100);
+          $table->string('mail_to_name',100);
+          $table->string('mail_from_address',100);
+          $table->string('mail_from_name',100);
           $table->string('mail_subject',100);
           $table->text('mail_body');
           $table->integer('mail_created');
