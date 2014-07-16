@@ -3,6 +3,7 @@
     <div class="col-md-12"><h1>Mailing archive</h1></div>
 </div>
 <div class="row">
+    @if ( count($mail_entries) > 0)
     <div class="col-md-12">
         <table class="table">
             <thead>
@@ -32,5 +33,8 @@
         </table>
         {{$mail_entries->links()}}
     </div>
+    @else
+    <div class="col-md-12">No records yet.</div>
+    @endif
 </div>
 @show
