@@ -17,5 +17,5 @@ Route::group(array('before' => 'checkAuth'), function() {
     });
 
 Route::filter('checkAuth', function() {
-        return false;
+//        return false;
     });

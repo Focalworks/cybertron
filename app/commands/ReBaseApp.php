@@ -41,6 +41,8 @@ class ReBaseApp extends Command {
 	  $this->call('migrate:reset');
 	  $this->info('Migrations reset');
 	  $this->call('migrate', array('--bench' => 'Amitavroy/Mailing'));
+	  $this->call('migrate', array('--package' => 'cartalyst/sentry'));
+        $this->call('migrate', array('--bench' => 'amitavroy/sentryuser'));
 	}
 
 	/**
