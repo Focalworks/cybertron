@@ -19,6 +19,7 @@ class SentryuserServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('amitavroy/sentryuser');
+        include __DIR__ . '/../../routes.php';
 	}
 
 	/**
