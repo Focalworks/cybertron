@@ -17,9 +17,11 @@ Route::get('done', function() {
 Route::group(array('before' => 'checkAuth'), function() {
         Route::get('user/logout', 'UserController@handleUserLogout');
         Route::get('user/dashboard', 'UserController@handleUserDashboard');
+
+        Route::get('user/permission/list', 'PermissionController@handlePermissionListing');
     });
 
 Route::filter('checkAuth', function() {
-        if (!GlobalHelper::checkAuth())
-            return Redirect::to('/');
+        /*if (!GlobalHelper::checkAuth())
+            return Redirect::to('/');*/
     });

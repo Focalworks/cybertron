@@ -22,6 +22,11 @@ class CreateDefaultUsers extends Migration {
 
         $group = Sentry::createGroup(array(
                 'name' => 'Super Admin',
+                'permissions' => array(
+                    'create users' => 1,
+                    'edit users' => 1,
+                    'delete users' => 1,
+                ),
             ));
 
         $group = Sentry::createGroup(array(

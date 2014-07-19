@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <li><a href="#">Something else here</a></li>
+          <li>{{ link_to('user/permission/list', 'Permissions') }}</li>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
