@@ -34,6 +34,7 @@ class CreateDefaultUsers extends Migration {
                 'permissions' => array(
                     'create users' => 1,
                     'edit users' => 1,
+                    'delete users' => 0,
                 ),
             ));
 

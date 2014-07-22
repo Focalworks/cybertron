@@ -19,6 +19,7 @@ Route::group(array('before' => 'checkAuth'), function() {
         Route::get('user/dashboard', 'UserController@handleUserDashboard');
 
         Route::get('user/permission/list', 'PermissionController@handlePermissionListing');
+        Route::post('user/permission/save', 'PermissionController@handlePermissionSave');
     });
 
 Route::filter('checkAuth', function() {

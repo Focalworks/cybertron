@@ -16,35 +16,46 @@ class CreatePermInGroupTable extends Migration {
 
         Schema::create('permission_in_group', function($table){
                 $table->engine = 'InnoDB';
+                $table->increments('ping_id');
                 $table->integer('permission_id');
                 $table->integer('group_id');
+                $table->integer('allow');
 
-                $table->index('permission_id');
-                $table->index('group_id');
+                $table->index(array('permission_id', 'group_id'));
             });
 
         /*for super admin by default*/
         DB::table('permission_in_group')->insert(array(
                 'permission_id' => 1,
                 'group_id' => 1,
+                'allow' => 1,
             ));
         DB::table('permission_in_group')->insert(array(
                 'permission_id' => 2,
                 'group_id' => 1,
+                'allow' => 1,
             ));
         DB::table('permission_in_group')->insert(array(
                 'permission_id' => 3,
                 'group_id' => 1,
+                'allow' => 1,
             ));
 
 
         DB::table('permission_in_group')->insert(array(
                 'permission_id' => 1,
                 'group_id' => 2,
+                'allow' => 1,
             ));
         DB::table('permission_in_group')->insert(array(
                 'permission_id' => 2,
                 'group_id' => 2,
+                'allow' => 1,
+            ));
+        DB::table('permission_in_group')->insert(array(
+                'permission_id' => 3,
+                'group_id' => 2,
+                'allow' => 0,
             ));
     }
 
