@@ -40,6 +40,25 @@ class PermissionController extends BaseController
 
     public function handlePermissionSave()
     {
-        dd(Input::all());
+        $postData = Input::all();
+        $SentryPermission = new SentryPermission;
+//        dd(Input::all());
+        foreach ($postData as $key => $value)
+        {
+            $arrayCheck = explode('|', $key);
+
+            // getting only the hidden values
+            if (count($arrayCheck) == 3)
+            {
+                $arrPermission = explode('|', $value);
+                $ping_id = $arrPermission[3];
+                $data = $SentryPermission->matchHiddenAndActualPost($key, $postData);
+
+                $query = DB::table('permission_in_group');
+                $query->where('ping_id', $ping_id);
+                $query->update($data);
+            }
+        }
+        return Redirect::to('user/permission/list');
     }
 }

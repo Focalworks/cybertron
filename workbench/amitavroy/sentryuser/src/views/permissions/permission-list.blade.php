@@ -26,10 +26,10 @@
                 @foreach ($permission as $p)
                     @if ($p->allow == 1)
                     <td><input type="checkbox" checked name="{{$p->permission_name}}|{{$p->name}}" value="{{$p->permission_id}}|{{$p->group_id}}|{{$p->allow}}">
-                        <input type="hidden" name="{{$p->permission_name}}|{{$p->name}}|hidden" value="{{$p->permission_id}}|{{$p->group_id}}|{{$p->allow}}"></td>
+                        <input type="hidden" name="{{$p->permission_name}}|{{$p->name}}|hidden" value="{{$p->permission_id}}|{{$p->group_id}}|{{$p->allow}}|{{$p->ping_id}}"></td>
                     @else
                     <td><input type="checkbox" name="{{$p->permission_name}}|{{$p->name}}" value="{{$p->permission_id}}|{{$p->group_id}}|{{$p->allow}}">
-                        <input type="hidden" name="{{$p->permission_name}}|{{$p->name}}|hidden" value="{{$p->permission_id}}|{{$p->group_id}}|{{$p->allow}}"></td>
+                        <input type="hidden" name="{{$p->permission_name}}|{{$p->name}}|hidden" value="{{$p->permission_id}}|{{$p->group_id}}|{{$p->allow}}|{{$p->ping_id}}"></td>
                     @endif
                 @endforeach
             </tr>
