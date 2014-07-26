@@ -20,6 +20,7 @@ Route::group(array('before' => 'checkAuth'), function() {
 
         Route::get('user/permission/list', 'PermissionController@handlePermissionListing');
         Route::post('user/permission/save', 'PermissionController@handlePermissionSave');
+        Route::post('user/permission/add', 'PermissionController@handlePermissionAdd');
     });
 
 Route::filter('checkAuth', function() {

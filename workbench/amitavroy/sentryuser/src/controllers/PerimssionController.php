@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Redirect;
 /**
  * Created by PhpStorm.
  * User: Amitav Roy
@@ -12,26 +13,14 @@ class PermissionController extends BaseController
 
     public function handlePermissionListing()
     {
-        $query = DB::table('permission_in_group');
-        $query->join('permissions', 'permissions.permission_id', '=', 'permission_in_group.permission_id');
-        $query->join('groups', 'groups.id', '=', 'permission_in_group.group_id');
-        $query->orderBy('permissions.permission_group_name', 'asc');
-        $query->orderBy('permissions.permission_name', 'asc');
-        $data = $query->get();
+        // creating the sentry permissin model instance
+        $SentryPermission = new SentryPermission;
 
-        $permissions = array();
-        foreach ($data as $row)
-        {
-            $permissions[$row->permission_name][] = $row;
-        }
-//        GlobalHelper::dsm($permissions);
+        // fetch the permission table data in array format
+        $permissions = $SentryPermission->formatPermissionData();
 
-        $groups_temp = DB::table('groups')->get();
-        $groups = array();
-        foreach ($groups_temp as $row)
-        {
-            $groups[$row->id] = $row;
-        }
+        // get the groups data from groups table in array format
+        $groups = $SentryPermission->getPermissionTableGroups();
 
         $this->layout->content = View::make('sentryuser::permissions.permission-list')
             ->with('groups', $groups)
@@ -42,23 +31,25 @@ class PermissionController extends BaseController
     {
         $postData = Input::all();
         $SentryPermission = new SentryPermission;
-//        dd(Input::all());
-        foreach ($postData as $key => $value)
+
+        if ($SentryPermission->updatePermissionMapping($postData))
         {
-            $arrayCheck = explode('|', $key);
-
-            // getting only the hidden values
-            if (count($arrayCheck) == 3)
-            {
-                $arrPermission = explode('|', $value);
-                $ping_id = $arrPermission[3];
-                $data = $SentryPermission->matchHiddenAndActualPost($key, $postData);
-
-                $query = DB::table('permission_in_group');
-                $query->where('ping_id', $ping_id);
-                $query->update($data);
-            }
+            GlobalHelper::setMessage('Permissions have been updated.');
+            return Redirect::to('user/permission/list');
         }
+        else 
+        {
+            GlobalHelper::setMessage('Not updated because of some problems.', 'warning');
+            return Redirect::to('user/permission/list');
+        }
+    }
+    
+    public function handlePermissionAdd()
+    {
+//         dd(Input::all());
+        $SentryPermission = new SentryPermission;
+        $SentryPermission->addPermission(Input::all());
+        
         return Redirect::to('user/permission/list');
     }
 }
