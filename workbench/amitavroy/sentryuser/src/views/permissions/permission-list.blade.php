@@ -11,7 +11,9 @@
 		<ul class="nav nav-tabs" role="tablist">
 			<li class="active"><a href="#home" role="tab" data-toggle="tab">Permission
 					List</a></li>
-			<li><a href="#profile" role="tab" data-toggle="tab">Add Permission</a></li>
+			<li><a href="#add-permission" role="tab" data-toggle="tab">Add
+					Permission</a></li>
+			<li><a href="#add-role" role="tab" data-toggle="tab">Add Role</a></li>
 		</ul>
 
 		<!-- Tab panes -->
@@ -51,18 +53,22 @@
 				<input type="submit" class="btn btn-success" name="save"
 					value="Save" /> {{ Form::close() }}
 			</div>
-			<div class="tab-pane" id="profile">
+			<div class="tab-pane" id="add-permission">
 				<h1>Add a new permission</h1>
 				{{ Form::open(array('url' => 'user/permission/add', 'role' =>
 				'form')) }}
 				<div class="form-group">
-					<input
-						type="text" class="form-control" id="permissionName"
+					<input type="text" class="form-control" id="permissionName"
 						name="permission_name" placeholder="Enter the new permission name">
 				</div>
 				<input type="submit" class="btn btn-success" name="save"
 					value="Save" /> {{ Form::close() }}
 
+			</div>
+			<div class="tab-pane" id="add-role">
+				<h1>Add new role</h1>
+				{{ Form::open(array('url' => 'user/role/add', 'role' =>
+				'form')) }}
 			</div>
 		</div>
 	</div>

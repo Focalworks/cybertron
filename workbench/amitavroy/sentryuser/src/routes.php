@@ -21,9 +21,10 @@ Route::group(array('before' => 'checkAuth'), function() {
         Route::get('user/permission/list', 'PermissionController@handlePermissionListing');
         Route::post('user/permission/save', 'PermissionController@handlePermissionSave');
         Route::post('user/permission/add', 'PermissionController@handlePermissionAdd');
+        Route::post('user/role/add', 'PermissionController@handleRoleAdd');
     });
 
 Route::filter('checkAuth', function() {
-        /*if (!GlobalHelper::checkAuth())
-            return Redirect::to('/');*/
+        if (!GlobalHelper::checkAuth())
+            return Redirect::to('/');
     });

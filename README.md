@@ -19,12 +19,19 @@ Once the configuration is done, we can do something like this
 
 And this will send the email and save information is the DB also.
 
-## Laravel PHP Framework
+### Sentry user and Permission
+This module is a ready made user management and permission management module. Once this module is enabled and the Migrations are executed, this module creates a default Super Admin user and also creates a permission matrix system. The permission Matrix is a custom module which is using the Sentry groups along with custom tables to manage the permission management screen similar to drupal.
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.png)](https://packagist.org/packages/laravel/framework)
+There will be a single function which can be used to check the access of a user based on the group he is in and the permission which his particular group has. 
+[Note: This module depends completly on Sentry module]
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+#### How to use
+To use this module, first we need to add the Service provider in app.php
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+    'Amitavroy\Sentryuser\SentryuserServiceProvider'
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Once this is added, we need to run the migrations for this package and so a few additional tables are created and a default user with role Super Admin is created.
+
+a) permissions b) permissision in groups.
+
+The permission setting page can be accessed from the top menu if you are using the complete Github application or through this url: "user/permission/list".
