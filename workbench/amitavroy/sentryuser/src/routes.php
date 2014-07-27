@@ -5,26 +5,36 @@
  * Date: 7/17/14
  * Time: 9:54 AM
  */
-
 Route::get('user', 'UserController@handleLoginPage');
 Route::post('do-login', 'UserController@handleUserAuthentication');
 
-Route::get('done', function() {
-        return "Done";
-    });
+Route::get('done', function ()
+{
+    return "Done";
+});
 
-/*this section is for authenticated users only*/
-Route::group(array('before' => 'checkAuth'), function() {
-        Route::get('user/logout', 'UserController@handleUserLogout');
-        Route::get('user/dashboard', 'UserController@handleUserDashboard');
+/* this section is for authenticated users only */
+Route::group(array(
+    'before' => 'checkAuth'
+), function ()
+{
+    // general user login and other pages
+    Route::get('user/logout', 'UserController@handleUserLogout');
+    Route::get('user/dashboard', 'UserController@handleUserDashboard');
+    
+    // edit profile section
+    Route::get('edit-profile', 'UserController@handleEditProfile');
+    Route::post('save-profile', 'UserController@handleSaveProfile');
+    
+    // the permission matrix section
+    Route::get('user/permission/list', 'PermissionController@handlePermissionListing');
+    Route::post('user/permission/save', 'PermissionController@handlePermissionSave');
+    Route::post('user/permission/add', 'PermissionController@handlePermissionAdd');
+    Route::post('user/role/add', 'PermissionController@handleRoleAdd');
+});
 
-        Route::get('user/permission/list', 'PermissionController@handlePermissionListing');
-        Route::post('user/permission/save', 'PermissionController@handlePermissionSave');
-        Route::post('user/permission/add', 'PermissionController@handlePermissionAdd');
-        Route::post('user/role/add', 'PermissionController@handleRoleAdd');
-    });
-
-Route::filter('checkAuth', function() {
-        if (!GlobalHelper::checkAuth())
-            return Redirect::to('/');
-    });
+Route::filter('checkAuth', function ()
+{
+    if (! GlobalHelper::checkAuth())
+        return Redirect::to('/');
+});

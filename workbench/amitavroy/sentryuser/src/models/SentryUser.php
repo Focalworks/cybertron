@@ -19,6 +19,8 @@ class SentryUser extends Eloquent
             );
 
             $user = Sentry::authenticate($credentials, false);
+            $userObj = UserHelper::getUserObj($user->id);
+            Session::put('userObj', $userObj);
 
             return true;
         }

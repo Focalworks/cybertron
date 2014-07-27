@@ -38,6 +38,19 @@ class UserController extends BaseController
     public function handleUserLogout()
     {
         Sentry::logout();
-        return Redirect::to('/');
+        GlobalHelper::setMessage('You have been logged out of the system.');
+        return Redirect::to('user');
+    }
+    
+    public function handleEditProfile()
+    {
+        $thisUser = Session::get('userObj');
+        $userData = UserHelper::getUserObj($thisUser->id);
+        $this->layout->content = View::make('sentryuser::edit-profile')->with('userdata', $userData);
+    }
+    
+    public function handleSaveProfile()
+    {
+        dd(Input::all());
     }
 }
