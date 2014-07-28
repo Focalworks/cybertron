@@ -8,11 +8,6 @@
 Route::get('user', 'UserController@handleLoginPage');
 Route::post('do-login', 'UserController@handleUserAuthentication');
 
-Route::get('done', function ()
-{
-    return "Done";
-});
-
 /* this section is for authenticated users only */
 Route::group(array(
     'before' => 'checkAuth'
