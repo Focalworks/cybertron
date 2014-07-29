@@ -22,9 +22,18 @@ class UserController extends BaseController
         $password = Input::get('password');
 
         $SentryUser = new SentryUser;
+
         if ($SentryUser->authenticateUser($username, $password))
         {
             GlobalHelper::setMessage('Login successful', 'success');
+
+            /* firing the login event*/
+            $user = Session::get('userObj'); // getting the user object from session to pass to the event.
+            $userSubscriber = new SentryuserEventHandler;
+
+            Event::subscribe($userSubscriber);
+            Event::fire('sentryuser.login', array($user));
+
             return Redirect::to('user/dashboard');
         }
 

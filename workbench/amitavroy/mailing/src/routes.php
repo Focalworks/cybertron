@@ -17,5 +17,6 @@ Route::group(array('before' => 'checkAuth'), function() {
     });
 
 Route::filter('checkAuth', function() {
-//        return false;
+        if (! GlobalHelper::checkAuth())
+            return Redirect::to('/');
     });

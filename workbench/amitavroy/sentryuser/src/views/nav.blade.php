@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <li>{{ link_to('user/permission/list', 'Permissions') }}</li>
+          <li>{{ link_to('mailing/list', 'Mailing List') }}</li>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

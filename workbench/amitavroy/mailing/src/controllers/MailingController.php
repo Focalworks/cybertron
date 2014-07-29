@@ -8,7 +8,7 @@
 
 class MailingController extends BaseController {
 
-    protected $layout = 'mailing::html';
+    protected $layout = 'sentryuser::master';
 
     public function handleMailingList()
     {

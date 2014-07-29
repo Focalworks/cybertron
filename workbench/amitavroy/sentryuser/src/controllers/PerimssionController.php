@@ -13,12 +13,6 @@ class PermissionController extends BaseController
 
     public function handlePermissionListing()
     {
-        Log::info('Before the event');
-        $subscriber = new SUserEventHandler;
-
-        Event::subscribe($subscriber);
-        $user = array(1,2,4);
-        Event::fire('suser.test', array($user));
         // creating the sentry permissin model instance
         $SentryPermission = new SentryPermission;
 
@@ -35,12 +29,6 @@ class PermissionController extends BaseController
 
     public function handlePermissionSave()
     {
-        $subscriber = new SUserEventHandler;
-
-        Event::subscribe($subscriber);
-        $user = array(1,2,3);
-        Event::fire('suser.best', array($user));
-
         $postData = Input::all();
         $SentryPermission = new SentryPermission;
 
