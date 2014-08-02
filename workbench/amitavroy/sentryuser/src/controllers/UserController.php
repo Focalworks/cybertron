@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Redirect;
 /**
  * Created by PhpStorm.
  * User: Amitav Roy
@@ -60,6 +61,12 @@ class UserController extends BaseController
     
     public function handleSaveProfile()
     {
-        dd(Input::all());
+        $postData = Input::all();
+        
+        // creating the SentryUser object and calling the edit profile function.
+        $SentryUser = new SentryUser;
+        $SentryUser->editProfile($postData);
+        
+        return Redirect::to('edit-profile');
     }
 }

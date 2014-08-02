@@ -2,7 +2,6 @@
 @parent<script type="text/javascript" src="{{ asset('packages/amitavroy/sentryuser/sentry-scripts.js') }}"></script>
 @stop
 @section('content')
-{{GlobalHelper::dsm($userdata)}}
 <div class="row">
     <div class="col-md-4">
         {{ Form::open(array('url' => 'save-profile', 'role' => 'form')) }}
