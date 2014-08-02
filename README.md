@@ -34,4 +34,8 @@ Once this is added, we need to run the migrations for this package and so a few 
 
 a) permissions b) permissision in groups.
 
+##### Users
+The user module has the basic login functionality which is internally using Sentry module. There is edit profile page where user can update his First name, Last name and also change his password.
+
+##### Permissions
 The permission setting page can be accessed from the top menu if you are using the complete Github application or through this url: "user/permission/list".
