@@ -12,9 +12,16 @@ class SentryuserEventHandler {
     {
         Log::info('I was here while login');
     }
+    
+    public function onUserProfileChange($user)
+    {
+        $SentryUser = new SentryUser;
+        $SentryUser->setUserSession($user->id);
+    }
 
     public function subscribe($events)
     {
         $events->listen('sentryuser.login', 'SentryuserEventHandler@onUserLogin');
+        $events->listen('sentryuser.profilechange', 'SentryuserEventHandler@onUserProfileChange');
     }
 }

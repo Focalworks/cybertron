@@ -26,8 +26,7 @@ class SentryUser extends Eloquent
             );
             
             $user = Sentry::authenticate($credentials, false);
-            $userObj = UserHelper::getUserObj($user->id);
-            Session::put('userObj', $userObj);
+            $this->setUserSession($user->id);
             
             return true;
         } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
@@ -48,6 +47,16 @@ class SentryUser extends Eloquent
         } catch (Cartalyst\Sentry\Throttling\UserBannedException $e) {
             GlobalHelper::setMessage('User is banned.', 'warning');
         }
+    }
+    
+    /**
+     * Creating the session for the user with the user details
+     * @param unknown $userId
+     */
+    public function setUserSession($userId)
+    {
+        $userObj = UserHelper::getUserObj($userId);
+        Session::put('userObj', $userObj);
     }
 
     /**
@@ -79,6 +88,11 @@ class SentryUser extends Eloquent
         
         if ($user->save())
         {
+            // calling the event of profile change
+            $subscriber = new SentryuserEventHandler;
+            Event::subscribe($subscriber);
+            Event::fire('sentryuser.profilechange', $user);
+            
             GlobalHelper::setMessage('Your profile details were updated');
             return true;
         }
