@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{ link_to('dashboard', 'Cybetron', array('class' => 'navbar-brand')) }}
+      {{ link_to('user/dashboard', 'Cybetron', array('class' => 'navbar-brand')) }}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
