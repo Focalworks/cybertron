@@ -43,6 +43,7 @@ class ReBaseApp extends Command {
         $this->call('migrate', array('--bench' => 'Amitavroy/Mailing'));
         $this->call('migrate', array('--package' => 'cartalyst/sentry'));
         $this->call('migrate', array('--bench' => 'amitavroy/sentryuser'));
+        $this->call('migrate', array('--bench' => 'amitavroy/filemanaged'));
         $this->call('asset:publish', array('--bench' => 'amitavroy/sentryuser'));
         $this->call('cache:clear');
         $this->call('dump-autoload');

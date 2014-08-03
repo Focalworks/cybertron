@@ -12,9 +12,9 @@ class FileManagedTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('file_managed');
+        Schema::dropIfExists('files_managed');
         
-        Schema::create('file_managed', function ($table)
+        Schema::create('files_managed', function ($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('file_id'); // the primary file id
@@ -37,7 +37,7 @@ class FileManagedTable extends Migration
 	 */
 	public function down()
 	{
-	    Schema::dropIfExists('file_managed');
+	    Schema::dropIfExists('files_managed');
 	}
 
 }

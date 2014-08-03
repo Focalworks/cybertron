@@ -15,3 +15,11 @@ Route::get('/', function()
 {
 	return Redirect::to('user');
 });
+
+Route::get('file', function ()
+{
+    $url = 'https://lh5.googleusercontent.com/-Ir-XRK83A7Y/UbRVdmaRgOI/AAAAAAAACxs/cVo_HQxc6Ig/s442/179285_496786981064_3036812_n.jpg';
+    $url = 'http://localhost/office_cybertron/public/uploads/user_pic/user-picture-1.jpg';
+    $folder = 'uploads/user_pic/';
+    FileApi::uploadFromURL($url, $folder);
+});
