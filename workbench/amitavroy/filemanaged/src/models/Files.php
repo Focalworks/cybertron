@@ -15,13 +15,21 @@ class Files extends Eloquent
         return mime_content_type($filepath);
     }
 
-    public function getNextFileName($fileName)
+    public function getNextFileName($fileName, $fileExt)
     {
+        // File::isFile('uploads/user_pic/' . "{$fileName}.{$fileExt}")
         $counter = 0;
-        $flag = false;
-        
+        $finalFileName = '';
         do {
-            
+            $counter++;
+            if (!File::isFile('uploads/user_pic/' . "{$fileName}{$counter}.{$fileExt}"))
+            {
+                $finalFileName = "{$fileName}{$counter}.{$fileExt}";
+                break;
+            }
         }
+        while (File::isFile('uploads/user_pic/' . "{$fileName}{$counter}.{$fileExt}"));
+
+        return $finalFileName;
     }
 }
