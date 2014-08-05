@@ -61,8 +61,10 @@ class SentryUser extends Eloquent
 
     /**
      * This function handles the post data and does the edit profile
-     * 
-     * @param unknown $postData            
+     *
+     * @param unknown $postData
+     *
+     * @return bool
      */
     public function editProfile($postData)
     {

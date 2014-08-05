@@ -5,23 +5,34 @@ class FileApi
     public static function uploadFromURL($url, $destination)
     {
         $Files = new Files;
-        
+
         $arrFileInfo = pathinfo($url);
 
-        // sanitize the file name
-        $fileName = $Files->sanitizeFileName($arrFileInfo['filename']);
-
+        // getting the file extension
         $fileExt = $arrFileInfo['extension'];
 
-        $fileNameNew = $Files->getNextFileName($fileName, $fileExt);
-        GlobalHelper::dsm($fileNameNew);
+        // the correct file name
+        $fileNameNew = $Files->getNextFileName($arrFileInfo['filename'], $destination, $fileExt);
 
-        // get the mime type of the file
-        $fileMimeType = $Files->getFileMimeType('uploads/user_pic/' . "{$fileName}.{$fileExt}");
-        
-        File::isFile('uploads/user_pic/' . "{$fileName}.{$fileExt}");
-        
-        GlobalHelper::dsm($fileMimeType);
-        GlobalHelper::dsm($arrFileInfo);
+        $content = file_get_contents($url);
+        if (file_put_contents($destination . $fileNameNew , $content))
+        {
+            // get the mime type of the file
+            $fileMimeType = $Files->getFileMimeType($destination . $fileNameNew);
+
+            $fileManagedData = array(
+                'file_name' => $fileNameNew,
+                'file_url' => $destination . $fileNameNew,
+                'file_mime' => $fileMimeType,
+                'file_size' => filesize($destination . $fileNameNew),
+                'file_status' => filesize($destination . $fileNameNew),
+            );
+            $Files->saveFileEntry($fileManagedData);
+            return $destination . $fileNameNew;
+        }
+        else
+        {
+            GlobalHelper::setMessage('Not able to save the file');
+        }
     }
 }
