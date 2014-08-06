@@ -70,6 +70,8 @@ class Files extends Eloquent
         $created = $date->format('Y-m-d H:i:s');
         $data['added_on'] = $created;
         $data['user_id'] = $user->id;
-        dd($data);
+
+        $fid = DB::table($this->table)->insertGetId($data);
+        return $fid;
     }
 }

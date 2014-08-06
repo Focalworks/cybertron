@@ -3,15 +3,18 @@
 class UserHelper extends Eloquent
 {
     /**
-     * Pass the user id to get the user object with the required details. 
+     * Pass the user id to get the user object with the required details.
+     *
      * @param unknown $user_id
+     * @param bool    $extra
+     *
      * @return unknown|boolean
      */
     public static function getUserObj($user_id, $extra = false)
     {
         $arrSelect = array(
             'users.id', 'users.email', 'users.first_name', 'users.last_name', 'users.created_at', 'users.updated_at',
-            'user_details.profile_image_url'
+            'user_details.user_profile_img'
         );
         
         $query = DB::table('users');
@@ -37,7 +40,13 @@ class UserHelper extends Eloquent
         if (Session::has('userObj'))
         {
             $userObj = Session::get('userObj');
-            return $userObj->profile_image_url;
+
+            if ($userObj->user_profile_img != 0)
+                return $userObj->user_profile_img;
+            else
+            {
+                return asset('assets/images/default-user.png');
+            }
         }
     }
     

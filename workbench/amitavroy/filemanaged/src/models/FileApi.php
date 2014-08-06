@@ -26,9 +26,18 @@ class FileApi
                 'file_mime' => $fileMimeType,
                 'file_size' => filesize($destination . $fileNameNew),
                 'file_status' => filesize($destination . $fileNameNew),
+                'file_type' => $fileExt,
+                'entity_type' => 'user',
             );
-            $Files->saveFileEntry($fileManagedData);
-            return $destination . $fileNameNew;
+
+            if ($Files->saveFileEntry($fileManagedData))
+            {
+                echo 'File saved';
+            }
+            else
+            {
+                echo 'File was not saved';
+            }
         }
         else
         {

@@ -18,8 +18,8 @@ Route::get('/', function()
 
 Route::get('file', function ()
 {
-    $url = 'https://lh5.googleusercontent.com/-Ir-XRK83A7Y/UbRVdmaRgOI/AAAAAAAACxs/cVo_HQxc6Ig/s442/179285_496786981064_3036812_n.jpg';
-    $url = 'http://localhost/office_cybertron/public/uploads/user_pic/user-picture-1.jpg';
-    $destination = 'uploads/user_pic/';
-    FileApi::uploadFromURL($url, $destination);
+//    $url = 'https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xfa1/t1.0-9/580460_10151280295341065_746889994_n.jpg';
+//    $url = 'http://localhost/office_cybertron/public/uploads/user_pic/user-picture-1.jpg';
+//    $destination = 'uploads/user_pic/';
+//    FileApi::uploadFromURL($url, $destination);
 });

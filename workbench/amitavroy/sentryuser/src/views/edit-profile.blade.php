@@ -18,6 +18,10 @@
             <label for="lastName">Last Name</label>
             <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName" value="{{$userdata->last_name}}">
         </div>
+        <div class="form-group">
+            <label for="lastName">Profile image</label>
+            <input type="text" class="form-control" id="profileImage" placeholder="Profile image url" name="profileImage" value="{{UserHelper::getUserPicture()}}">
+        </div>
         
         <h2>Password</h2>
         <div class="form-group">
@@ -43,7 +47,7 @@
     </div>
     <div class="col-md-8">
         <div class="profile-image">
-            <img src="{{$userdata->profile_image_url}}" alt="" class="img-thumbnail pull-right" />
+            <img src="{{UserHelper::getUserPicture()}}" alt="" class="img-thumbnail pull-right" />
         </div>
     </div>
 </div>

@@ -19,12 +19,11 @@ class CreateUserDetailsTbl extends Migration
             $table->engine = 'InnoDB';
             $table->increments('user_detail_id');
             $table->integer('user_id');
-            $table->string('profile_image_url');
+            $table->integer('user_profile_img')->default(0); // user profile image file id
         });
         
         DB::table('user_details')->insert(array(
             'user_id' => 1,
-            'profile_image_url' => 'https://lh5.googleusercontent.com/-Ir-XRK83A7Y/UbRVdmaRgOI/AAAAAAAACxs/cVo_HQxc6Ig/s442/179285_496786981064_3036812_n.jpg',
         ));
     }
 
