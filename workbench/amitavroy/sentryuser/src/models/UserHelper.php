@@ -41,11 +41,15 @@ class UserHelper extends Eloquent
         {
             $userObj = Session::get('userObj');
 
-            if ($userObj->user_profile_img != 0)
-                return $userObj->user_profile_img;
-            else
+            if ($userObj->user_profile_img == "0")
             {
                 return Config::get('sentryuser::sentryuser.default-pic');
+            }
+            else
+            {
+                $fileId = $userObj->user_profile_img;
+                $url = DB::table('files_managed')->select('file_url')->where('file_id', $fileId)->pluck('file_url');
+                return $url;
             }
         }
     }

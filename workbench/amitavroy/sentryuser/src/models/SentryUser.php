@@ -154,11 +154,19 @@ class SentryUser extends Eloquent
 
     private function setUserProfileFromUrl($url, $destination)
     {
-        $userId = Sentry::getUser()->id;
+        $user = Sentry::getUser();
         $fileId = FileApi::uploadFromURL($url, $destination);
-        DB::table('user_details')->where('user_id', $userId)->update(array(
+
+        // the old file needs to be deleted at this instance if not default
+        
+
+        DB::table('user_details')->where('user_id', $user->id)->update(array(
             'user_profile_img' => $fileId
         ));
+
+        $subscriber = new SentryuserEventHandler;
+        Event::subscribe($subscriber);
+        Event::fire('sentryuser.profilechange', $user);
 
         return true;
     }
