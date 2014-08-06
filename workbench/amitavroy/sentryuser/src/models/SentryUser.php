@@ -79,7 +79,7 @@ class SentryUser extends Eloquent
         }
         
         // get the sentry user object
-        $user = Sentry::findUserById(Sentry::getId());
+        $user = Sentry::getUser();
         
         // set the password only if the flag is true
         if ($passwordChangeFlag == true)
@@ -87,7 +87,15 @@ class SentryUser extends Eloquent
         
         $user->first_name = $postData['firstname'];
         $user->last_name = $postData['lastName'];
-        
+
+        /*GlobalHelper::dsm(asset($postData['profileImage']));
+        GlobalHelper::dsm($postData['hiddenProfileImage'], true);*/
+        if ($postData['hiddenProfileImage'] != asset($postData['profileImage']))
+        {
+            $destination = 'uploads/user_pic/';
+            $this->setUserProfileFromUrl($postData['profileImage'], $destination);
+        }
+
         if ($user->save())
         {
             // calling the event of profile change
@@ -142,5 +150,16 @@ class SentryUser extends Eloquent
         }
         else
             return true;
+    }
+
+    private function setUserProfileFromUrl($url, $destination)
+    {
+        $userId = Sentry::getUser()->id;
+        $fileId = FileApi::uploadFromURL($url, $destination);
+        DB::table('user_details')->where('user_id', $userId)->update(array(
+            'user_profile_img' => $fileId
+        ));
+
+        return true;
     }
 }

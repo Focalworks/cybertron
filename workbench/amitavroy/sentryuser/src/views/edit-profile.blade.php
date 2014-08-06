@@ -21,6 +21,7 @@
         <div class="form-group">
             <label for="lastName">Profile image</label>
             <input type="text" class="form-control" id="profileImage" placeholder="Profile image url" name="profileImage" value="{{UserHelper::getUserPicture()}}">
+            <input type="hidden" name="hiddenProfileImage" value="{{asset(UserHelper::getUserPicture())}}"/>
         </div>
         
         <h2>Password</h2>

@@ -30,14 +30,11 @@ class FileApi
                 'entity_type' => 'user',
             );
 
-            if ($Files->saveFileEntry($fileManagedData))
-            {
-                echo 'File saved';
-            }
+            $fileId = $Files->saveFileEntry($fileManagedData);
+            if ($fileId)
+                return $fileId;
             else
-            {
-                echo 'File was not saved';
-            }
+                GlobalHelper::setMessage('Not able to save the file');
         }
         else
         {
