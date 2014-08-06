@@ -37,7 +37,10 @@ class UserController extends BaseController
 
             return Redirect::to('user/dashboard');
         }
-
+        else
+        {
+            return Redirect::to('user');
+        }
     }
 
     public function handleUserDashboard()
