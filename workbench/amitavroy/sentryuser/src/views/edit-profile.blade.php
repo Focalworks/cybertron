@@ -47,7 +47,7 @@
     </div>
     <div class="col-md-8">
         <div class="profile-image">
-            <img src="{{UserHelper::getUserPicture()}}" alt="" class="img-thumbnail pull-right" />
+            <img src="{{asset(UserHelper::getUserPicture())}}" alt="" class="img-thumbnail pull-right" />
         </div>
     </div>
 </div>

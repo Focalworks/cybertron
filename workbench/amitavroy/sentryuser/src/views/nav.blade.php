@@ -20,7 +20,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <span class="user-image"><img src="{{UserHelper::getUserPicture()}}" alt="" class="pull-left" width="35" height="35" /></span>
+        <span class="user-image"><img src="{{asset(UserHelper::getUserPicture())}}" alt="" class="pull-left" width="35" height="35" /></span>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{UserHelper::getUserDisplayName()}} <b class="caret"></b></a>
           <ul class="dropdown-menu">

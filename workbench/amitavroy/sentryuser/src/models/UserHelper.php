@@ -45,7 +45,7 @@ class UserHelper extends Eloquent
                 return $userObj->user_profile_img;
             else
             {
-                return asset('assets/images/default-user.png');
+                return Config::get('sentryuser::sentryuser.default-pic');
             }
         }
     }
