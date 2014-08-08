@@ -19,9 +19,9 @@ class PermApi
 
     public static function access_check($permissionName)
     {
-        if (PermApi::user_has_permission($permissionName))
-            return true;
-        else
-            return Redirect::to('access-denied');
+        if (!PermApi::user_has_permission($permissionName))
+        {
+            header('Location: ' . url('access-denied'));die;
+        }
     }
 }
