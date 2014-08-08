@@ -13,6 +13,8 @@ class PermissionController extends BaseController
 
     public function handlePermissionListing()
     {
+        PermApi::access_check('manage_permissions');
+
         // creating the sentry permissin model instance
         $SentryPermission = new SentryPermission;
 

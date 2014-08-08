@@ -40,6 +40,11 @@ class CreatePermInGroupTable extends Migration {
                 'group_id' => 1,
                 'allow' => 1,
             ));
+        DB::table('permission_in_group')->insert(array(
+                'permission_id' => 4,
+                'group_id' => 1,
+                'allow' => 1,
+            ));
 
 
         DB::table('permission_in_group')->insert(array(
@@ -54,6 +59,11 @@ class CreatePermInGroupTable extends Migration {
             ));
         DB::table('permission_in_group')->insert(array(
                 'permission_id' => 3,
+                'group_id' => 2,
+                'allow' => 0,
+            ));
+        DB::table('permission_in_group')->insert(array(
+                'permission_id' => 4,
                 'group_id' => 2,
                 'allow' => 0,
             ));

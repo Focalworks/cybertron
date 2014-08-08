@@ -12,6 +12,7 @@ class CreateDefaultUsers extends Migration {
      */
     public function up()
     {
+        /*create the first user as super admin*/
         $user = Sentry::createUser(array(
                 'email'     => 'amitavroy@gmail.com',
                 'password'  => 'test1234',
@@ -26,7 +27,20 @@ class CreateDefaultUsers extends Migration {
                     'create_users' => 1,
                     'edit_users' => 1,
                     'delete_users' => 1,
+                    'manage_permissions' => 1,
                 ),
+            ));
+
+        $adminGroup = Sentry::findGroupById(1);
+        $user->addGroup($adminGroup);
+
+        /*create second user as admin*/
+        $user = Sentry::createUser(array(
+                'email'     => 'amitav.roy@focalworks.in',
+                'password'  => 'test1234',
+                'activated' => true,
+                'first_name' => 'Amitav',
+                'last_name' => 'FW'
             ));
 
         $group = Sentry::createGroup(array(
@@ -35,11 +49,11 @@ class CreateDefaultUsers extends Migration {
                     'create_users' => 1,
                     'edit_users' => 1,
                     'delete_users' => 0,
+                    'manage_permissions' => 0,
                 ),
             ));
 
-        $adminGroup = Sentry::findGroupById(1);
-
+        $adminGroup = Sentry::findGroupById(2);
         $user->addGroup($adminGroup);
     }
 

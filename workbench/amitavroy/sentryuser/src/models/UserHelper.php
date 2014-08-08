@@ -22,8 +22,9 @@ class UserHelper extends Eloquent
         if ($extra == false)
             $query->select($arrSelect);
         
-        $query->join('user_details', 'user_details.user_id', '=', 'users.id');
+        $query->leftjoin('user_details', 'user_details.user_id', '=', 'users.id');
         $query->where('users.activated', 1);
+        $query->where('users.id', $user_id);
         $result = $query->first();
         
         if ($result != null)

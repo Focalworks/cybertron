@@ -11,6 +11,12 @@ class UserController extends BaseController
 {
     protected $layout = 'sentryuser::master';
 
+    public function handleAccessDeniedPage()
+    {
+        $this->layout->menuSkip = true;
+        $this->layout->content = View::make('sentryuser::access-denied');
+    }
+
     public function handleLoginPage()
     {
         $this->layout->menuSkip = true;

@@ -64,8 +64,9 @@ class SentryPermission extends Eloquent
 
     /**
      * This function is updating the user in group table for mapping purpose.
-     * 
-     * @param unknown $postData            
+     *
+     * @param unknown $postData
+     * @return bool
      */
     public function updatePermissionMapping($postData)
     {

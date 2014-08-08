@@ -15,6 +15,7 @@
         "classmap": [
             "src/migrations",
             "src/models",
+            "src/helpers",
             "src/controllers"
         ],
         "psr-0": {

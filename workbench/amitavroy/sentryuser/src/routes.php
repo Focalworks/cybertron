@@ -5,6 +5,7 @@
  * Date: 7/17/14
  * Time: 9:54 AM
  */
+Route::get('access-denied', 'UserController@handleAccessDeniedPage');
 Route::get('user', 'UserController@handleLoginPage');
 Route::post('do-login', 'UserController@handleUserAuthentication');
 

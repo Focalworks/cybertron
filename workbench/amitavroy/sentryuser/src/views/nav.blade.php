@@ -15,7 +15,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
+          @if(PermApi::user_has_permission('manage_permissions'))
           <li>{{ link_to('user/permission/list', 'Permissions') }}</li>
+          @endif
           <li>{{ link_to('mailing/list', 'Mailing List') }}</li>
         </li>
       </ul>
