@@ -24,6 +24,6 @@ return array(
     /**
      * Set this to a navigation template so that the top navigation menu is replaced.
      */
-    'nav-tpl' => '',
+    'nav-tpl' => 'nav',
 
 );

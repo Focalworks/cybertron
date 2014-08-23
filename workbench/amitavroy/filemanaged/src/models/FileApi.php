@@ -45,7 +45,7 @@ class FileApi
     public static function dataToCSV($dbData, $headers = null, $keys = null)
     {
         // the data needs to be an object
-        if (!is_object($dbData))
+        if (!is_array($dbData))
         {
             Files::setMessage('Cannot convert this data into a CSV file');
         }
