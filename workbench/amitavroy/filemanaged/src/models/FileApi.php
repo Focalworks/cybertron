@@ -34,11 +34,62 @@ class FileApi
             if ($fileId)
                 return $fileId;
             else
-                GlobalHelper::setMessage('Not able to save the file');
+                Files::setMessage('Not able to save the file');
         }
         else
         {
-            GlobalHelper::setMessage('Not able to save the file');
+            Files::setMessage('Not able to save the file');
         }
+    }
+
+    public static function dataToCSV($dbData, $headers = null, $keys = null)
+    {
+        // the data needs to be an object
+        if (!is_object($dbData))
+        {
+            Files::setMessage('Cannot convert this data into a CSV file');
+        }
+
+        // fetching the keys from the first element
+        $dataCols = array();
+        if ($keys == null)
+        {
+            foreach ($dbData[0] as $key => $value)
+            {
+                $dataCols[] = $key;
+            }
+        }
+        else
+        {
+            $dataCols = $keys;
+        }
+
+        $finalDataArr = array();
+        foreach ($dbData as $key => $row)
+        {
+            foreach ($dataCols as $col)
+            {
+                $finalDataArr[$key][] = $row->$col;
+            }
+        }
+
+        $output = '';
+
+        /**
+         * checking if the CSV columns are defined
+         * then it will add then as the first row.
+         */
+        if ($headers != null && is_array($headers))
+        {
+            $output .= implode(",",$headers);
+            $output .= "\n";
+        }
+
+        foreach ($finalDataArr as $row) {
+            $output.=  implode(",",$row);
+            $output .= "\n";
+        }
+
+        return $output;
     }
 }

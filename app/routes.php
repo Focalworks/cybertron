@@ -18,8 +18,23 @@ Route::get('/', function()
 
 Route::get('file', function ()
 {
-//    $url = 'https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xfa1/t1.0-9/580460_10151280295341065_746889994_n.jpg';
-//    $url = 'http://localhost/office_cybertron/public/uploads/user_pic/user-picture-1.jpg';
-//    $destination = 'uploads/user_pic/';
-//    FileApi::uploadFromURL($url, $destination);
+    $selectArr = array(
+        'u.id', 'u.email', 'u.last_login', 'u.first_name', 'u.last_name'
+    );
+
+    $users = DB::table('users as u')
+        ->select($selectArr)
+        ->orderBy('u.id', 'desc')
+        ->get();
+
+    $dataCols = array('id', 'email', 'first_name', 'last_name', 'last_login');
+    $headerCol = array('Id', 'Email', 'First name', 'Last name', 'Last login');
+    $output = FileApi::dataToCSV($users, $headerCol, $dataCols);
+
+    $headers = array(
+        'Content-Type' => 'text/csv',
+        'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
+    );
+
+    return Response::make(rtrim($output, "\n"), 200, $headers);
 });

@@ -42,9 +42,10 @@ class ReBaseApp extends Command {
         $this->info('Migrations reset');
         $this->call('migrate', array('--bench' => 'amitavroy/mailing'));
         $this->call('migrate', array('--package' => 'cartalyst/sentry'));
-        $this->call('migrate', array('--bench' => 'amitavroy/sentryuser'));
+        $this->call('migrate', array('--package' => 'l4mod/sentryuser'));
         $this->call('migrate', array('--bench' => 'amitavroy/filemanaged'));
-        $this->call('asset:publish', array('--bench' => 'amitavroy/sentryuser'));
+        $this->call('asset:publish', array('l4mod/sentryuser'));
+        $this->call('config:publish', array('l4mod/sentryuser'));
         $this->call('cache:clear');
         $this->call('dump-autoload');
     }

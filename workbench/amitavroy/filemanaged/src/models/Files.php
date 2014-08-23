@@ -6,6 +6,27 @@ class Files extends Eloquent
     protected $table = 'files_managed';
 
     /**
+     * This function will set the message in session so that when the page renders,
+     * we can display a message on top of the page.
+     * @param $message
+     * @param string $flag
+     */
+    public static function setMessage($message, $flag = 'info')
+    {
+        $tempMessage = '';
+        if (Session::get('message'))
+            $tempMessage = Session::get('message');
+
+        if ($tempMessage == "")
+            $tempMessage = $message;
+        else
+            $tempMessage = $tempMessage . '<br />' . $message;
+
+        Session::flash('message', $tempMessage);
+        Session::flash('message-flag', $flag);
+    }
+
+    /**
      * This function will take the file name and remove any unwanted characters
      * present in the file name which can cause problem in urls.
      * @param $name
@@ -62,6 +83,11 @@ class Files extends Eloquent
         return $finalFileName;
     }
 
+    /**
+     * This function is saving the file entry in the file managed table
+     * @param $data
+     * @return mixed
+     */
     public function saveFileEntry($data)
     {
         date_default_timezone_set("Asia/Kolkata");

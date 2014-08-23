@@ -120,6 +120,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'Amitavroy\Mailing\MailingServiceProvider',
+        'Amitavroy\Sentryuser\SentryuserServiceProvider',
         'Amitavroy\Filemanaged\FilemanagedServiceProvider',
     )
     ,
