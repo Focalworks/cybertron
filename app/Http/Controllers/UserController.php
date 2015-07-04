@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -17,12 +19,17 @@ class UserController extends Controller
 
     /**
      * This is the url for the user dashboard
-     * where the user will be redirected
-     * after successful login
      *
      * @var string
      */
     protected $dashboard = 'user/dashboard';
+
+    /**
+     * The change password screen
+     *
+     * @var string
+     */
+    protected $changePasswordScreen = 'user/change-password';
 
     /**
      * This is the construvtor for the Controller
@@ -97,7 +104,26 @@ class UserController extends Controller
 
     public function saveNewPassword(Request $request)
     {
-        dd($request->input());
+        $currentUser = Auth::user();
+
+        // checking if the current password is correct
+        if (!Hash::check($request->input('current_password'), $currentUser->password)) {
+            Session::flash('flash_error', 'Current password is wrong.');
+            return redirect($this->changePasswordScreen);
+        }
+
+        // check if the two password match
+        if ($request->input('new_password') != $request->input('confirm_new_password')) {
+            Session::flash('flash_error', 'The two passwords are not matching.');
+            return redirect($this->changePasswordScreen);
+        }
+
+        // change password and send back
+        $currentUser->password = Hash::make($request->input('new_password'));
+        $currentUser->save();
+
+        Session::flash('flash_message', 'Password changed.');
+        return redirect($this->changePasswordScreen);
     }
 
     /**
