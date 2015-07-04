@@ -20,6 +20,7 @@ elixir(function(mix) {
         'ripple.css',
         'material.css',
         'roboto.css',
+        'animate.css'
     ]);
 
     mix.less([

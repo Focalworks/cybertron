@@ -18,3 +18,7 @@ Route::get('/', function () {
 // User related pages
 Route::get('user', 'UserController@getLoginPage');
 Route::post('user/do-login', 'UserController@doLogin');
+Route::get('user/dashboard', 'UserController@getUserDashboard');
+Route::get('user/change-password', 'UserController@getChangeUserPassword');
+Route::post('user/save-new-password', 'UserController@saveNewPassword');
+Route::get('user/logout', 'UserController@getUserLogout');
