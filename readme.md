@@ -13,3 +13,6 @@ The dashboard can be configured inside the controller.
 
 **Url**: /user/logout
 <br>**Description**: Logging out the user and destroying his session.
+
+**Url**: /user/profile
+<br>**Description**: User can edit his profile and change the information. Right now only he can change the display name.
