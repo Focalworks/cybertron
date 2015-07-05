@@ -5,7 +5,6 @@
     <h1>Login</h1>
 
     <form action="{{ url('user/do-login') }}" method="POST">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <div class="form-group">
             <input type="text" id="email"
@@ -19,11 +18,7 @@
             class="form-control"/>
         </div>
 
-        <div class="form-group">
-            <input type="submit" value="Login"
-            name="login" id="login-btn"
-            class="btn btn-primary"/>
-        </div>
+        <input type="submit" class="btn btn-primary" value="Login">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>

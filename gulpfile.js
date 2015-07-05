@@ -23,13 +23,15 @@ elixir(function(mix) {
         'animate.css'
     ]);
 
-    mix.less([
+    /*mix.less([
         'custom.less'
-    ]);
+    ]);*/
 
     mix.scripts([
         'app.js'
     ]);
+
+    mix.phpUnit();
 
     mix.version(["css/all.css", "js/all.js", "css/app.css"]);
 });

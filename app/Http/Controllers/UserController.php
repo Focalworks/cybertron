@@ -68,6 +68,7 @@ class UserController extends Controller
         $credentials = [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
+            'status' => 1,
         ];
 
         if (!Auth::attempt($credentials)) {
@@ -79,6 +80,7 @@ class UserController extends Controller
         }
 
         Session::flash('flash_message', 'You have logged in successfully');
+
         return redirect($this->dashboard);
     }
 
