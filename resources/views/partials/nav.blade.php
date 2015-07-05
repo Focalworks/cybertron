@@ -32,7 +32,7 @@
                        aria-expanded="false">{{Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{url('user/change-password')}}">Change password</a></li>
-                        <li><a href="{{url('admin/user/' . Auth::user()->id . '/edit')}}">Edit profile</a></li>
+                        <li><a href="{{url('user/profile')}}">Edit profile</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li class="divider"></li>
                         <li><a href="{{url('user/logout')}}">Logout</a></li>

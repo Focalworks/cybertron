@@ -21,4 +21,6 @@ Route::post('user/do-login', 'UserController@doLogin');
 Route::get('user/dashboard', 'UserController@getUserDashboard');
 Route::get('user/change-password', 'UserController@getChangeUserPassword');
 Route::post('user/save-new-password', 'UserController@saveNewPassword');
+Route::get('user/profile', 'UserController@getUserProfileEditPage');
+Route::post('user/profile/save', 'UserController@saveUserProfileData');
 Route::get('user/logout', 'UserController@getUserLogout');

@@ -102,6 +102,13 @@ class UserController extends Controller
         return view('user.user-changepasswd');
     }
 
+    /**
+     * Check current password and then change
+     * the new password set by the user.
+     *
+     * @param  Illuminate\Http\Request
+     * @return redirect to change password
+     */
     public function saveNewPassword(Request $request)
     {
         $currentUser = Auth::user();
@@ -124,6 +131,28 @@ class UserController extends Controller
 
         Session::flash('flash_message', 'Password changed.');
         return redirect($this->changePasswordScreen);
+    }
+
+    /**
+     * This is the user profile edit page.
+     *
+     * @return view user profile edit.
+     */
+    public function getUserProfileEditPage()
+    {
+        return view('user.user-editprofile')
+            ->with('user', Auth::user());
+    }
+
+    public function saveUserProfileData(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        $user->name = $request->input('name');
+        $user->save();
+
+        Session::flash('flash_message', 'Profile data changed.');
+        return redirect()->back();
     }
 
     /**
