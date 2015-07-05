@@ -155,4 +155,33 @@ class UserModuleTest extends TestCase
             ->press('Save')
             ->see('Password changed.');
     }
+
+    /**
+     * Check if the edit profile page is working.
+     *
+     * @return void
+     */
+    public function testEditProfilePage()
+    {
+        $this->actingAs($this->user)
+            ->visit('/user/profile')
+            ->see('Edit profile');
+    }
+
+    /**
+     * Checking the profile name change.
+     *
+     * @return void
+     */
+    public function testProfileNameChange()
+    {
+        $this->actingAs($this->user)
+            ->visit('/user/profile')
+            ->type('Amitav Roy changed', 'name')
+            ->press('Save')
+            ->see('Profile data changed.');
+
+        $nameChanged = 'Amitav Roy changed';
+        $this->assertEquals(App\User::find(1)->name, $nameChanged);
+    }
 }
