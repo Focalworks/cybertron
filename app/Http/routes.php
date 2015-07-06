@@ -24,3 +24,9 @@ Route::post('user/save-new-password', 'UserController@saveNewPassword');
 Route::get('user/profile', 'UserController@getUserProfileEditPage');
 Route::post('user/profile/save', 'UserController@saveUserProfileData');
 Route::get('user/logout', 'UserController@getUserLogout');
+
+// Places
+Route::get('places/my-places', 'PlacesController@getMyPlacesList');
+Route::get('places/map', 'PlacesController@getMapIframe');
+Route::post('geo_location', 'PlacesController@saveUserLocation');
+Route::get('api/my-places', 'PlacesController@getMyPlaceJSON');

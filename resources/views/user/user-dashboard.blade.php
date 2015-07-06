@@ -1,5 +1,5 @@
 @extends('master')
 
 @section('content')
-<h1>Welcome to your dashboard</h1>
+<h1>Welcome {{Auth::user()->name}}</h1>
 @endsection
