@@ -18,7 +18,7 @@ class Places extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'type', 'latitude', 'longitude'];
+    protected $fillable = ['name', 'type', 'latitude', 'longitude', 'user_id'];
 
     /**
      * Get the user who went to this place.
