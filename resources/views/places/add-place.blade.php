@@ -24,4 +24,31 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Added on</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($places as $place)
+                <tr>
+                    <td>{{$place->name}}</td>
+                    <td>{{$place->type}}</td>
+                    <td>{{$place->latitude}}</td>
+                    <td>{{$place->longitude}}</td>
+                    <td>{{$place->created_at}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
 @endsection

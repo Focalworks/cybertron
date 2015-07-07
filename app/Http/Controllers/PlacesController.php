@@ -27,14 +27,27 @@ class PlacesController extends Controller
      */
     public function getMyPlacesList()
     {
-        return view('places.add-place');
+        $places = Places::orderBy('created_at', 'desc')->get();
+
+        return view('places.add-place')->with('places', $places);
     }
 
+    /**
+     * This is the HTML for the model coming with the Google MAP.
+     *
+     * @return view
+     */
     public function getMapIframe()
     {
         return view('places.map-partial');
     }
 
+    /**
+     * Get the location details and save data to database.
+     *
+     * @param  Illuminate\Http\Request
+     * @return void
+     */
     public function saveUserLocation(Request $request)
     {
         Places::create([
@@ -46,6 +59,11 @@ class PlacesController extends Controller
         ]);
     }
 
+    /**
+     * Get the JSON data of the user's places.
+     *
+     * @return Places object
+     */
     public function getMyPlaceJSON()
     {
         return Places::get();

@@ -146,6 +146,12 @@ class UserController extends Controller
             ->with('user', Auth::user());
     }
 
+    /**
+     * Saving the user profile data on save.
+     *
+     * @param  Illuminate\Http\Request
+     * @return redirect back
+     */
     public function saveUserProfileData(Request $request)
     {
         $user = User::find(Auth::user()->id);

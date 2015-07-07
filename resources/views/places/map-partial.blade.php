@@ -116,6 +116,11 @@
 
     <script type="text/javascript">
     $('.alert').hide(); // hide the alerts at first
+    var newLat;
+    var newLong;
+    var draggedLat;
+    var draggedLong;
+    var dragged = false;
 
     function initialize() {
         var mapOptions = {
@@ -175,11 +180,14 @@
 
             infowindow.setContent(place.formatted_address);//('<div><strong>' + place.name + '</strong><br>' + address);
             infowindow.open(map, marker);
+
+            newLat = place.geometry.location.lat();
+            newLong = place.geometry.location.lng();
         });
 
         //drag event of marker
         //change input text and marker's infowindow(tooltip) content
-        google.maps.event.addListener(marker, 'dragend', function() {
+        google.maps.event.addListener(marker, 'dragend', function(event) {
             pos = marker.getPosition();
             geocoder = new google.maps.Geocoder();
             geocoder.geocode({
@@ -189,7 +197,9 @@
                 if (status == google.maps.GeocoderStatus.OK) {
                     infowindow.setContent(place[0].formatted_address);
                     $("#address_for_google").val(place[0].formatted_address);
-                    console.log(place);
+                    draggedLat = event.latLng.lat();
+                    draggedLong = event.latLng.lng();
+                    dragged = true;
                 }
                 else {
                  alert('Cannot determine address at this location.');
@@ -202,35 +212,32 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 
     $("#btnSavelocation").click(function() {
-        geocoder = new google.maps.Geocoder();
-        var address = document.getElementById("address_for_google").value;
+        if (dragged == true) {
+            newLat = draggedLat;
+            newLong = draggedLong;
+        }
 
-        geocoder.geocode( { 'address': address}, function(results, status) {
-            console.log('status', status);
-            if (status == google.maps.GeocoderStatus.OK) {
-                $.post(baseUrl + '/geo_location', {
-                    address: address,
-                    latitude: results[0].geometry.location.lat(),
-                    longitude:results[0].geometry.location.lng(),
-                    location_type:$('#place_name').val(),
-                    _token:$('#_token').val()
-                }, function (data, status) {
-                    if(status == 'success') {
-                        $('.alert-success').slideDown().delay(1000).slideUp(3000, function() {
-                            $('#place_name').val('');
-                            $('#address_for_google').val('');
-                            initialize();
-                        })
-                    } else {
-                        $('.alert-danger').html('Error, Please try again.')
-                        .slideDown()
-                        .delay(1000)
-                        .slideUp();
-                    }
+        $.post(baseUrl + '/geo_location', {
+            address: $('#address_for_google').val(),
+            latitude: newLat,
+            longitude: newLong,
+            location_type:$('#place_name').val(),
+            _token:$('#_token').val()
+        }, function (data, status) {
+            if(status == 'success') {
+                $('.alert-success').slideDown().delay(1000).slideUp(3000, function() {
+                    $('#place_name').val('');
+                    $('#address_for_google').val('');
+                    initialize();
                 })
+            } else {
+                $('.alert-danger').html('Error, Please try again.')
+                .slideDown()
+                .delay(1000)
+                .slideUp();
             }
-        });
-});
+        })
+    });
 </script>
 </body>
 </html>
