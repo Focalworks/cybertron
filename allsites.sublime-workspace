@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"$users〔variable〕"
+			],
+			[
+				"l",
+				"lctrl	laravelctrl"
+			],
+			[
+				"name",
+				"$nameChanged〔variable〕"
+			],
+			[
+				"chan",
+				"changed"
+			],
+			[
+				"curren",
+				"current_password"
+			],
+			[
+				"ac",
+				"actingAs〔function〕"
+			],
+			[
+				"c",
+				"click〔function〕"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
 				"bs",
 				"bsfrmgrp	bsformgroup"
 			],
@@ -32,10 +64,6 @@
 				"changePasswordScreen"
 			],
 			[
-				"req",
-				"$request〔variable〕"
-			],
-			[
 				"fun",
 				"function〔keyword〕"
 			],
@@ -44,20 +72,12 @@
 				"$this〔variable〕"
 			],
 			[
-				"user",
-				"username"
-			],
-			[
 				"in",
 				"input"
 			],
 			[
 				"pub",
 				"public"
-			],
-			[
-				"name",
-				"name"
 			],
 			[
 				"pu",
@@ -196,19 +216,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/Places.php",
+			"file": "app/Watchdog.php",
 			"settings":
 			{
-				"buffer_size": 517,
-				"line_ending": "Unix",
-				"name": "<?php"
-			}
-		},
-		{
-			"file": "app/User.php",
-			"settings":
-			{
-				"buffer_size": 989,
+				"buffer_size": 234,
 				"line_ending": "Unix"
 			}
 		},
@@ -216,42 +227,16 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 926,
+				"buffer_size": 1565,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/UserController.php",
+			"file": "app/Utils/GlobalFunctions.php",
 			"settings":
 			{
-				"buffer_size": 4093,
+				"buffer_size": 345,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/user/user-editprofile.blade.php",
-			"settings":
-			{
-				"buffer_size": 530,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 853,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nMaterial Theme:\n--------------\n\n  ___  ___      _            _       _       _____ _\n  |  \\/  |     | |          (_)     | |     |_   _| |\n  | .  . | __ _| |_ ___ _ __ _  __ _| |       | | | |__   ___ _ __ ___   ___\n  | |\\/| |/ _` | __/ _ \\ '__| |/ _` | |       | | | '_ \\ / _ \\ '_ ` _ \\ / _ \\\n  | |  | | (_| | ||  __/ |  | | (_| | |       | | | | | |  __/ | | | | |  __/\n  \\_|  |_/\\__,_|\\__\\___|_|  |_|\\__,_|_|       \\_/ |_| |_|\\___|_| |_| |_|\\___|\n  \n  Material Theme for Sublime Text 3\n  https://github.com/equinusocio/material-theme for more info\n  \n  ******************************************************************************\n  \n  \n  To activate this awesome theme, add in your current settings this code:\n  \n  {\n      \"theme\": \"Material-Theme.sublime-theme\",\n      \"color_scheme\": \"Packages/Material Theme/schemes/Material-Theme.tmTheme\",\n  }\n  \n  \n  MAKE SURE TO RESTART SUBLIME AFTER ACTIVATING THE THEME\n  ******************************************************************************\n  \n  \n  You can set the alternative darker version with this:\n  \n  {\n      \"theme\": \"Material-Theme-Darker.sublime-theme\",\n      \"color_scheme\": \"Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme\",\n  \n  }\n  \n  ******************************************************************************\n  \n  \n  Recommended UI and font settings:\n  I suggest you to use this custom settings for a better experience with the theme:\n  \n  {\n      \"overlay_scroll_bars\": \"enabled\",\n      \"line_padding_top\": 3,\n      \"line_padding_bottom\": 3,\n      // On retina Mac\n      \"font_options\": [ \"gray_antialias\" ],\n      \"always_show_minimap_viewport\": true,\n      \"bold_folder_labels\": true,\n      // Highlight active indent\n      \"indent_guide_options\": [ \"draw_normal\", \"draw_active\" ]\n  }\n  \n  ******************************************************************************\n  \n  ",
-			"settings":
-			{
-				"buffer_size": 1918,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"scratch": true
 			}
 		}
 	],
@@ -262,10 +247,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 192.0,
-		"last_filter": "instal",
+		"height": 354.0,
+		"last_filter": "psr",
 		"selected_items":
 		[
+			[
+				"psr",
+				"phpfmt: toggle PSR2"
+			],
+			[
+				"new",
+				"ANF: New File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -317,13 +314,9 @@
 			[
 				"php",
 				"Set Syntax: PHP"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 601.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -344,40 +337,71 @@
 	},
 	"expanded_folders":
 	[
-		"/Volumes/data/Code/allsites",
-		"/Volumes/data/Code/allsites/app",
-		"/Volumes/data/Code/allsites/public/js/vendor",
-		"/Volumes/data/Code/allsites/resources",
-		"/Volumes/data/Code/allsites/resources/views",
-		"/Volumes/data/Code/allsites/resources/views/user"
+		"/Volumes/data/Projects/allsites",
+		"/Volumes/data/Projects/allsites/app",
+		"/Volumes/data/Projects/allsites/app/Utils",
+		"/Volumes/data/Projects/allsites/database",
+		"/Volumes/data/Projects/allsites/database/migrations"
 	],
 	"file_history":
 	[
+		"/Volumes/data/Projects/allsites/composer.json",
+		"/Volumes/data/Projects/allsites/app/Utils/GlobalFunctions.php",
+		"/Volumes/data/Projects/allsites/database/migrations/2015_07_11_080512_create_watchdog_table.php",
+		"/Volumes/data/Projects/allsites/database/migrations/2015_07_11_075348_create_watchdog_table.php",
+		"/Volumes/data/Projects/allsites/.env",
+		"/Volumes/data/Code/learningl5/app/Http/Controllers/Controller.php",
+		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Volumes/data/Code/learningl5/app/Http/Controllers/TestController.php",
+		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/AdvancedNewFile/Default (OSX).sublime-keymap",
+		"/Volumes/data/Code/learningl5/test/mine.js",
+		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
+		"/Volumes/html/friendfinder/resources/views/master.blade.php",
+		"/Volumes/html/friendfinder/resources/views/user/add-user.blade.php",
+		"/Volumes/html/friendfinder/app/Http/Controllers/UserController.php",
+		"/Volumes/html/friendfinder/app/User.php",
+		"/Volumes/html/friendfinder/app/Http/routes.php",
+		"/Volumes/html/friendfinder/config/app.php",
+		"/Volumes/html/friendfinder/bootstrap/app.php",
+		"/Volumes/data/Code/allsites/composer.json",
+		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/phpfmt.sublime-settings",
+		"/Volumes/data/Code/learningl5/composer.json",
+		"/Volumes/data/Code/pmtools/app/Console/Commands/WatchdogCleanup.php",
+		"/Volumes/data/Code/pmtools/resources/views/user/dashboard.blade.php",
+		"/Volumes/data/Code/pmtools/app/Http/routes.php",
+		"/Volumes/data/Code/pmtools/app/Http/Controllers/UserController.php",
+		"/Volumes/data/Code/allsites/resources/views/user/user-login.blade.php",
+		"/Volumes/data/Code/allsites/.gitignore",
+		"/Volumes/data/Code/allsites/tests/TestCase.php",
+		"/Volumes/data/Code/allsites/app/Http/Controllers/UserController.php",
+		"/Volumes/data/Code/allsites/gulpfile.js",
+		"/Volumes/data/Code/allsites/config/database.php",
+		"/Volumes/data/Code/allsites/phpunit.xml",
+		"/Volumes/data/Code/allsites/tests/ExampleTest.php",
+		"/Volumes/data/Code/allsites/app/Places.php",
+		"/Volumes/data/Code/allsites/app/User.php",
+		"/Volumes/data/Code/allsites/app/Http/routes.php",
+		"/Volumes/data/Code/allsites/resources/views/user/user-editprofile.blade.php",
+		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Volumes/data/Code/allsites/resources/views/partials/nav.blade.php",
-		"/Volumes/data/Code/allsites/app/Http/routes.php",
 		"/Volumes/data/Code/allsites/database/migrations/2015_07_04_123449_create_places_table.php",
 		"/Volumes/data/Code/allsites/database/migrations/2014_10_12_000000_create_users_table.php",
 		"/Volumes/data/Code/allsites/readme.md",
-		"/Volumes/data/Code/allsites/app/Http/Controllers/UserController.php",
 		"/Volumes/data/Code/allsites/resources/views/user/user-changepasswd.blade.php",
-		"/Volumes/data/Code/allsites/resources/views/user/user-login.blade.php",
 		"/Volumes/data/Code/allsites/app/Http/Middleware/Authenticate.php",
 		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/html/laravel-form.sublime-snippet",
 		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/html/bsformgroup.sublime-snippet",
 		"/Volumes/data/Code/allsites/resources/views/master.blade.php",
 		"/Volumes/data/Code/allsites/resources/views/user/user-dashboard.blade.php",
 		"/Volumes/data/Code/allsites/resources/assets/js/app.js",
-		"/Volumes/data/Code/allsites/gulpfile.js",
 		"/Volumes/data/Code/allsites/public/js/vendor/vendor.js",
 		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/Default.sublime-keymap",
 		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/phpfmt/Default.sublime-keymap",
 		"/Volumes/data/Code/allsites/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php",
 		"/Volumes/data/Code/allsites/database/seeds/UserTableSeeder.php",
 		"/Volumes/data/Code/allsites/.gitattributes",
-		"/Volumes/data/Code/allsites/.gitignore",
 		"/Volumes/data/Code/allsites/vendor/laravel/framework/src/Illuminate/Support/Facades/Hash.php",
-		"/Volumes/data/Code/allsites/app/User.php",
 		"/Volumes/data/Code/allsites/database/seeds/DatabaseSeeder.php",
 		"/Volumes/data/Code/allsites/storage/logs/laravel.log",
 		"/Volumes/data/Code/allsites/.env",
@@ -393,16 +417,13 @@
 		"/Users/amitav/.homestead/Homestead.yaml",
 		"/Users/amitav/Downloads/sunpharma_google_analytics.sql",
 		"/Users/amitav/Documents/Code/unclickd/.env",
-		"/Volumes/data/Code/pmtools/app/Http/routes.php",
 		"/Volumes/data/Code/pmtools/app/Http/Controllers/TimeEntryController.php",
-		"/Volumes/data/Code/pmtools/app/Http/Controllers/UserController.php",
 		"/Volumes/data/Code/pmtools/app/Modules/TimeEntry/WeeklyReport.php",
 		"/Volumes/data/Code/pmtools/resources/views/reports/weekly-report-add.blade.php",
 		"/Volumes/data/Code/pmtools/app/User.php",
 		"/Volumes/data/Code/pmtools/resources/views/partials/nav.blade.php",
 		"/Volumes/data/Code/pmtools/resources/views/user/add-user.blade.php",
 		"/Volumes/data/Code/pmtools/database/seeds/UserSeeder.php",
-		"/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Volumes/data/Code/pmtools/resources/assets/js/app.js",
 		"/Users/amitav/Documents/Code/amitavroy/app/Providers/RouteServiceProvider.php",
 		"/Users/amitav/Documents/Code/amitavroy/app/Utils/FileManager.php",
@@ -430,7 +451,6 @@
 		"/Volumes/data/Code/learningl5/vendor/nesbot/carbon/src/Carbon/Carbon.php",
 		"/Volumes/data/Code/learningl5/app/Http/routes.php",
 		"/Volumes/data/Code/learningl5/app/Http/Controllers/WelcomeController.php",
-		"/Volumes/data/Code/learningl5/composer.json",
 		"/Volumes/data/Code/learningl5/app/Jobs/Job.php",
 		"/Volumes/data/Code/learningl5/config/app.php",
 		"/Volumes/data/Code/learningl5/public/index.php",
@@ -452,26 +472,15 @@
 		"/Volumes/html/unclickd/app/Handlers/Events/HandleSendPhotoSetToContacts.php",
 		"/Volumes/html/unclickd/app/Http/routes.php",
 		"/Volumes/html/unclickd/app/Unclickd/Photos.php",
-		"/Volumes/html/unclickd/app/Providers/EventServiceProvider.php",
-		"/Volumes/html/unclickd/storage/logs/laravel-2015-06-18.log",
-		"/Volumes/html/unclickd/app/Events/PhotosetResponseReceived.php",
-		"/Volumes/html/unclickd/app/Events/EventSavePhotoSetUserResponse.php",
-		"/Volumes/eichergitrepo/sites/all/libraries/eicher/audit_update.php",
-		"/Volumes/eichergitrepo/sites/all/modules/device_action/device_action.module",
-		"/Volumes/eichergitrepo/sites/default/settings.php",
-		"/Users/amitav/Dropbox/Working/youtube_stats.sql",
-		"/Users/amitav/Documents/Code/rnd/decorator.php",
-		"/Users/amitav/Downloads/homestead/src/stubs/Homestead.yaml",
-		"/Volumes/html/unclickd/app/Http/Controllers/DistListCtrl.php",
-		"/Volumes/html/unclickd/app/Providers/RouteServiceProvider.php"
+		"/Volumes/html/unclickd/app/Providers/EventServiceProvider.php"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
-		"height": 94.0,
+		"height": 251.0,
 		"where_history":
 		[
 			""
@@ -482,6 +491,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<?",
 			"Illuminate\\Support\\Facades",
 			"amitavroy",
 			"app\namitavroy",
@@ -512,86 +522,54 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/Places.php",
+					"file": "app/Watchdog.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 517,
+						"buffer_size": 234,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								422,
-								422
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"auto_name": "<?php",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/User.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 989,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								644,
-								644
+								181,
+								181
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "app/Http/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 926,
+						"buffer_size": 1565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								866,
-								866
+								1565,
+								1565
 							]
 						],
 						"settings":
@@ -601,135 +579,38 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Http/Controllers/UserController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3743,
-								3727
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2975.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "resources/views/user/user-editprofile.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 530,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								477,
-								477
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/Users/amitav/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 853,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								850,
-								850
-							]
-						],
-						"settings":
-						{
-							"auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 156.0,
+						"translation.y": 372.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 2,
+					"file": "app/Utils/GlobalFunctions.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1918,
+						"buffer_size": 345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1489,
-								1583
-							],
-							[
-								1701,
-								1728
-							],
-							[
-								1768,
-								1824
+								107,
+								107
 							]
 						],
 						"settings":
 						{
-							"auto_indent": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
+							"_anf_new": true,
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 573.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -740,7 +621,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -778,10 +659,10 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "demo.sublime-project",
+	"project": "allsites.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 118.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -791,16 +672,72 @@
 		"selected_items":
 		[
 			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"compser",
+				"composer.json"
+			],
+			[
+				"compsoer",
+				"composer.json"
+			],
+			[
 				"route",
 				"app/Http/routes.php"
 			],
 			[
-				"nav.blade",
-				"resources/views/partials/nav.blade.php"
+				".env",
+				".env"
+			],
+			[
+				"testcontro",
+				"app/Http/Controllers/TestController.php"
+			],
+			[
+				"master",
+				"resources/views/master.blade.php"
+			],
+			[
+				"user",
+				"app/User.php"
 			],
 			[
 				"usercontro",
 				"app/Http/Controllers/UserController.php"
+			],
+			[
+				"app.php",
+				"bootstrap/app.php"
+			],
+			[
+				"usercon",
+				"app/Http/Controllers/UserController.php"
+			],
+			[
+				"dashboard",
+				"resources/views/user/dashboard.blade.php"
+			],
+			[
+				"usercontroller",
+				"app/Http/Controllers/UserController.php"
+			],
+			[
+				".gitn",
+				".gitignore"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"login.",
+				"resources/views/user/user-login.blade.php"
+			],
+			[
+				"nav.blade",
+				"resources/views/partials/nav.blade.php"
 			],
 			[
 				"create_placs",
@@ -843,14 +780,6 @@
 				"resources/views/user/user-login.blade.php"
 			],
 			[
-				"gulp",
-				"gulpfile.js"
-			],
-			[
-				"master",
-				"resources/views/master.blade.php"
-			],
-			[
 				"nav",
 				"resources/views/partials/nav.blade.php"
 			],
@@ -883,20 +812,12 @@
 				"vendor/laravel/framework/src/Illuminate/Support/Facades/Hash.php"
 			],
 			[
-				"user",
-				"app/User.php"
-			],
-			[
 				"laravel",
 				"storage/logs/laravel.log"
 			],
 			[
 				"",
 				"database/migrations/2014_10_12_000000_create_users_table.php"
-			],
-			[
-				".env",
-				".env"
 			],
 			[
 				"create_us",
@@ -935,10 +856,6 @@
 				"app/Http/Controllers/RestCtrl.php"
 			],
 			[
-				"usercon",
-				"app/Http/Controllers/UserController.php"
-			],
-			[
 				"app",
 				"resources/assets/js/app.js"
 			],
@@ -961,10 +878,6 @@
 			[
 				"routes",
 				"app/Providers/RouteServiceProvider.php"
-			],
-			[
-				"composer",
-				"composer.json"
 			],
 			[
 				"create_deve",
@@ -1077,7 +990,7 @@
 		[
 			[
 				"",
-				"/Volumes/data/Code/allsites/demo.sublime-project"
+				"/Volumes/data/Code/pmtools/pmtools.sublime-workspace"
 			]
 		],
 		"width": 380.0
@@ -1099,7 +1012,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 306.0,
+	"side_bar_width": 325.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -1,0 +1,21 @@
+{
+    "name": "amitav/watchdog",
+    "description": "This is my watchdog package",
+    "license": "MIT",
+    "homepage": "http://amitavroy.com",
+    "authors": [
+        {
+            "name": "Amitav Roy",
+            "email": "reachme@amitavroy.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JeroenG\\Packager\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+    	"illuminate/support": "~5"
+    }
+}

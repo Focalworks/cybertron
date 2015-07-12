@@ -30,3 +30,8 @@ Route::get('places/my-places', 'PlacesController@getMyPlacesList');
 Route::get('places/map', 'PlacesController@getMapIframe');
 Route::post('geo_location', 'PlacesController@saveUserLocation');
 Route::get('api/my-places', 'PlacesController@getMyPlaceJSON');
+
+Route::get('temp', function () {
+    $trial = new Amitav\Watchdog\Trial;
+    echo $trial->giveMyName();
+});
